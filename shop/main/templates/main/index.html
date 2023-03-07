@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+<title>Головна сторінка</title>
+{% endblock %}
+
+
+{% block body %}
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+        <span class="fs-4"><h1>Категорії</h1></span>
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+          <a class="btn btn-lg btn-primary" href="{% url 'add_c' %}">Додати категорію</a>
+      </nav>
+    </div>
+
+    {% for category in categories %}
+
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="card-header py-3">
+          <nav class="py-2 bg-light border-bottom">
+            <div class="container d-flex flex-wrap">
+              <ul class="nav me-auto">
+        <li class="nav-item"><a class="btn btn-lg btn-secondary" href="{% url 'tasks' category.id %}">{{category.title}}</a></li>
+              </ul>
+      <ul class="nav">
+         <li class="nav-item"><p><a class="btn btn-danger" href="{% url 'c_del' category.id %}">Видалити</a></p></li>
+      </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+
+{% endblock %}

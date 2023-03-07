@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+<title>Виконані завдання</title>
+{% endblock %}
+
+
+{% block body %}
+    {% for task in tasks %}
+        <table>
+            <td><a class="btn btn-lg btn-warning" href="{% url 'n_done' task.id %}">Вернути</a></td>
+
+            <td><h3>{{task.title}}</h3></td>
+        </table><br>
+    {% endfor %}
+        <a class="btn btn-danger" href="{% url 'done_del' %}">Видалити все!</a>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+<title>Додати категорію</title>
+{% endblock %}
+
+
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.title }}<br>
+    <button type="submit" class="btn btn-success">Додати</button>
+</form>
+{% endblock %}

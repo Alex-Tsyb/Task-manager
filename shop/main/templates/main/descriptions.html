@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+<title>Опис</title>
+{% endblock %}
+
+
+{% block body %}
+    <h2>{{task.title}}</h2>
+    <p>{{task.description}}</p>
+    <h5>{{task.task_date}}</h5>
+<a href="{% url 'task_del' task.id %}">Виконати</a>
+{% endblock %}
